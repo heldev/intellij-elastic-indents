@@ -23,10 +23,11 @@
   <depends>com.intellij.modules.platform</depends>
 
   <actions>
-    <!-- Add your actions here -->
-      <action id="io.github.heldev.AddInlayIndentsAction" class="io.github.heldev.AddInlayIndentsAction" text="heldevName"
-              description="heldevDesc">
-          <add-to-group group-id="ToolsMenu" anchor="first"/>
+      <action id="io.github.heldev.AddInlayIndentsAction"
+              class="io.github.heldev.AddInlayIndentsAction"
+              text="Toggle Elastic Indents"
+              description="Turn elastic indentation on or off">
+          <add-to-group group-id="ViewMenu" anchor="last"/>
       </action>
   </actions>
 
