@@ -89,7 +89,7 @@ public class AddInlayIndentsAction extends AnAction {
 	private boolean isActivated = false;
 
 	@Override
-	public void update(AnActionEvent e) {
+	public void update(@NotNull AnActionEvent e) {
 		setEnabledInModalContext(true);
 		// Using the event, evaluate the context, and enable or disable the action.
 	}
