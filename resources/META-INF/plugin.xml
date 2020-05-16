@@ -1,0 +1,40 @@
+<idea-plugin>
+  <id>io.github.heldev.elasticindents</id>
+  <name>Elastic indents</name>
+  <version>0.1</version>
+  <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>
+
+  <description><![CDATA[
+      Enter short description for your plugin here.<br>
+      <em>most HTML tags may be used</em>
+    ]]></description>
+
+  <change-notes><![CDATA[
+      Add change notes here.<br>
+      <em>most HTML tags may be used</em>
+    ]]>
+  </change-notes>
+
+  <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+  <idea-version since-build="173.0"/>
+
+  <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+       on how to target different products -->
+  <depends>com.intellij.modules.platform</depends>
+  <depends>com.intellij.modules.java</depends>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <!-- Add your extensions here -->
+      <lang.foldingBuilder language="JAVA" implementationClass="io.github.heldev.IndentationFolder"/>
+      <lang.foldingBuilder language="JAVA" implementationClass="io.github.heldev.MultilineMethodDeclarationFolder"/>
+  </extensions>
+
+  <actions>
+    <!-- Add your actions here -->
+      <action id="io.github.heldev.AddInlayIndentsAction" class="io.github.heldev.AddInlayIndentsAction" text="heldevName"
+              description="heldevDesc">
+          <add-to-group group-id="ToolsMenu" anchor="first"/>
+      </action>
+  </actions>
+
+</idea-plugin>
