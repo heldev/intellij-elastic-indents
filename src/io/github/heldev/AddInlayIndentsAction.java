@@ -27,6 +27,12 @@ public class AddInlayIndentsAction extends AnAction {
 
 		public static final EditorFactory editorFactory = EditorFactory.getInstance();
 
+		public void addIndentInlays() {
+			for(var editor: editorFactory.getAllEditors()) {
+				addIndentInlays(editor.getDocument(), editor.getInlayModel());
+			}
+		}
+
 		@Override
 		public void documentChanged(@NotNull DocumentEvent event) {
 			Document document = event.getDocument();
@@ -39,13 +45,13 @@ public class AddInlayIndentsAction extends AnAction {
 
 				if (isNewLineChange || isIndentChange) {
 					removeIndentInlays(inlayModel);
-					addIdentInlays(document, inlayModel);
+					addIndentInlays(document, inlayModel);
 				}
 			}
 		}
 
 
-		private void addIdentInlays(Document document, InlayModel inlayModel) {
+		private void addIndentInlays(Document document, InlayModel inlayModel) {
 			inlayModel.setConsiderCaretPositionOnDocumentUpdates(false);
 
 			IntStream.range(0, document.getLineCount())
@@ -96,6 +102,7 @@ public class AddInlayIndentsAction extends AnAction {
 			var document = editor.getDocument();
 
 			if (! isActivated) {
+				listener.addIndentInlays();
 				document.addDocumentListener(listener);
 			} else {
 				document.removeDocumentListener(listener);
