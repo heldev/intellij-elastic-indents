@@ -45,19 +45,20 @@ public class InlayManipulator {
 
 	private void addIndentInlays(InlayModel inlayModel, Document document, int line) {
 		var lineStart = document.getLineStartOffset(line);
-		var indent = getIndent(document, lineStart);
+		var indentSpaceCount = countIndentSpaces(document, lineStart);
 
-		if (! indent.isEmpty()) {
-			inlayModel.addInlineElement(lineStart, new IndentRenderer(indent));
+		if (0 < indentSpaceCount) {
+			inlayModel.addInlineElement(lineStart, new IndentRenderer(indentSpaceCount));
 		}
 	}
 
-	private String getIndent(Document document, int lineStart) {
+	private Integer countIndentSpaces(Document document, int lineStart) {
 
 		return document
 				.getText()
 				.substring(lineStart)
-				.split("[^ ]", 2)[0];
+				.split("[^ ]", 2)[0]
+				.length();
 	}
 
 	public void removeIndentInlays() {
