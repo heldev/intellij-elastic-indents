@@ -8,7 +8,7 @@ import com.intellij.openapi.util.Disposer;
 import org.jetbrains.annotations.NotNull;
 
 
-public class AddInlayIndentsAction extends AnAction {
+public class ToggleElasticIndents extends AnAction {
 
 	private static final EditorFactory editorFactory = EditorFactory.getInstance();
 

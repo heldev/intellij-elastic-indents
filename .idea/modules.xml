@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/intellij-plugin.iml" filepath="$PROJECT_DIR$/intellij-plugin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/intellij-elastic-indents.iml" filepath="$PROJECT_DIR$/intellij-elastic-indents.iml" />
     </modules>
   </component>
 </project>
