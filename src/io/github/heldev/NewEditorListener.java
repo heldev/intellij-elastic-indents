@@ -2,14 +2,15 @@ package io.github.heldev;
 
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.editor.event.EditorFactoryEvent;
+import com.intellij.openapi.editor.event.EditorFactoryListener;
 import org.jetbrains.annotations.NotNull;
 
-class EditorFactoryListener implements com.intellij.openapi.editor.event.EditorFactoryListener {
+class NewEditorListener implements EditorFactoryListener {
 
 	private final InlayManipulator inlayManipulator;
-	private final InlayIndentDocumentListener inlayDocumentListener;
+	private final IndentChangeDocumentListener inlayDocumentListener;
 
-	public EditorFactoryListener(InlayManipulator inlayManipulator, InlayIndentDocumentListener inlayDocumentListener) {
+	public NewEditorListener(InlayManipulator inlayManipulator, IndentChangeDocumentListener inlayDocumentListener) {
 		this.inlayManipulator = inlayManipulator;
 		this.inlayDocumentListener = inlayDocumentListener;
 	}
