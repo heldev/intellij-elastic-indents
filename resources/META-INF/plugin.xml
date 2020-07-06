@@ -1,18 +1,15 @@
 <idea-plugin>
   <id>io.github.heldev.elasticindents</id>
-  <name>Elastic indents</name>
-  <version>0.6.0</version>
+  <name>Elastic Indents</name>
+  <version>1.0.0</version>
   <vendor email="heldevemail@gmail.com" url="https://github.com/heldev/intellij-elastic-indents">heldev</vendor>
 
-  <description><![CDATA[
-      Display space indented sources as if indents were twice as long
-    ]]></description>
+  <description>
+    <![CDATA[Doubles the visual length of space indents<br/>
+    Switch it on/off using <kbd>View -> Toggle Elastic Indents</kbd>]]>
+  </description>
 
-  <change-notes><![CDATA[
-      Initial version
-      Double the length of space indents
-    ]]>
-  </change-notes>
+  <change-notes>Initial version</change-notes>
 
   <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
   <idea-version since-build="183.0"/>
@@ -22,8 +19,6 @@
   <depends>com.intellij.modules.platform</depends>
 
   <actions>
-      hw
-
       <action id="io.github.heldev.ToggleElasticIndents"
               class="io.github.heldev.ToggleElasticIndents"
               text="Toggle Elastic Indents"

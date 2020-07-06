@@ -20,22 +20,22 @@ public class InlayManipulator {
 
 
 	public void refreshIndentInlays(Document document) {
-		for(var editor: editorFactory.getEditors(document)) {
+		for(Editor editor: editorFactory.getEditors(document)) {
 			removeIndentInlays(editor.getInlayModel());
 			addIndentInlays(editor);
 		}
 	}
 
 	public void addIndentInlays() {
-		for(var editor: editorFactory.getAllEditors()) {
+		for(Editor editor: editorFactory.getAllEditors()) {
 			removeIndentInlays(editor.getInlayModel());
 			addIndentInlays(editor);
 		}
 	}
 
 	public void addIndentInlays(Editor editor) {
-		var document = editor.getDocument();
-		var inlayModel = editor.getInlayModel();
+		Document document = editor.getDocument();
+		InlayModel inlayModel = editor.getInlayModel();
 
 		inlayModel.setConsiderCaretPositionOnDocumentUpdates(false);
 
@@ -44,8 +44,8 @@ public class InlayManipulator {
 	}
 
 	private void addIndentInlays(InlayModel inlayModel, Document document, int line) {
-		var lineStart = document.getLineStartOffset(line);
-		var indentSpaceCount = countIndentSpaces(document, lineStart);
+		int lineStart = document.getLineStartOffset(line);
+		Integer indentSpaceCount = countIndentSpaces(document, lineStart);
 
 		if (0 < indentSpaceCount) {
 			inlayModel.addInlineElement(lineStart, new IndentRenderer(indentSpaceCount));
@@ -62,7 +62,7 @@ public class InlayManipulator {
 	}
 
 	public void removeIndentInlays() {
-		for(var editor: editorFactory.getAllEditors()) {
+		for(Editor editor: editorFactory.getAllEditors()) {
 			removeIndentInlays(editor.getInlayModel());
 		}
 	}

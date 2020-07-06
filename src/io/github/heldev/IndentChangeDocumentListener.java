@@ -1,5 +1,6 @@
 package io.github.heldev;
 
+import com.intellij.openapi.editor.Document;
 import com.intellij.openapi.editor.event.DocumentEvent;
 import com.intellij.openapi.editor.event.DocumentListener;
 import org.jetbrains.annotations.NotNull;
@@ -28,7 +29,7 @@ class IndentChangeDocumentListener implements DocumentListener {
 	}
 
 	private boolean isIndentChange(DocumentEvent event) {
-		var document = event.getDocument();
+		Document document = event.getDocument();
 		int cursorOffset = event.getOffset();
 		int cursorLineNumber = document.getLineNumber(cursorOffset);
 

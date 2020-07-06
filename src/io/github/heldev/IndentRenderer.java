@@ -7,11 +7,13 @@ import com.intellij.openapi.editor.Inlay;
 import com.intellij.openapi.editor.markup.TextAttributes;
 import org.jetbrains.annotations.NotNull;
 
+import static java.util.Collections.nCopies;
+
 class IndentRenderer extends HintRenderer {
 	private final Integer size;
 
 	public IndentRenderer(Integer size) {
-		super(" ".repeat(size));
+		super(String.join("", nCopies(size, " ")));
 		this.size = size;
 	}
 
@@ -26,7 +28,7 @@ class IndentRenderer extends HintRenderer {
 	@Override
 	public int calcWidthInPixels(@NotNull Inlay inlay) {
 
-		var charWidth = getFontMetrics(inlay.getEditor())
+		int charWidth = getFontMetrics(inlay.getEditor())
 				.getMetrics()
 				.charWidth('E');
 
