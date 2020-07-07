@@ -1,15 +1,15 @@
 package io.github.heldev;
 
 import com.intellij.openapi.Disposable;
-import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.editor.EditorFactory;
+import com.intellij.openapi.project.DumbAwareAction;
 import com.intellij.openapi.util.Disposer;
 import org.jetbrains.annotations.NotNull;
 
 
-public class ToggleElasticIndents extends AnAction {
+public class ToggleElasticIndents extends DumbAwareAction {
 
 	private static final EditorFactory editorFactory = EditorFactory.getInstance();
 

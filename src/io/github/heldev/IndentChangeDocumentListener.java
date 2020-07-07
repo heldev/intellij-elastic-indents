@@ -30,9 +30,9 @@ class IndentChangeDocumentListener implements DocumentListener {
 
 	private boolean isIndentChange(DocumentEvent event) {
 		Document document = event.getDocument();
-		int cursorOffset = event.getOffset();
-		int cursorLineNumber = document.getLineNumber(cursorOffset);
+		int changeOffset = event.getOffset();
+		int lineStartOffset = document.getLineStartOffset(document.getLineNumber(changeOffset));
 
-		return cursorOffset <= getFirstNonSpaceCharOffset(document, cursorLineNumber);
+		return document.getText().substring(lineStartOffset, changeOffset).matches("\\s*");
 	}
 }
