@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "io.github.heldev"
-version = "1.0.0-SNAPSHOT"
+version = "1.0.0"
 
 repositories {
     mavenCentral()
@@ -12,5 +12,5 @@ repositories {
 
 // See https://github.com/JetBrains/gradle-intellij-plugin/
 intellij {
-    version = "2020.2"
+    version = "2019.3"
 }
