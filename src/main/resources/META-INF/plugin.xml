@@ -8,7 +8,7 @@
     Switch it on/off using <kbd>View -> Toggle Elastic Indents</kbd>]]>
   </description>
 
-  <change-notes>Initial version, doubles visual space indents</change-notes>
+  <change-notes>Initial version, visually doubles the length of space indents</change-notes>
 
   <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
        on how to target different products -->

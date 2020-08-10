@@ -1,3 +1,5 @@
+import org.jetbrains.intellij.tasks.PatchPluginXmlTask
+
 plugins {
     id("org.jetbrains.intellij") version "0.4.21"
     java
@@ -13,4 +15,8 @@ repositories {
 // See https://github.com/JetBrains/gradle-intellij-plugin/
 intellij {
     version = "2019.3"
+}
+
+tasks.getByName<PatchPluginXmlTask>("patchPluginXml") {
+    untilBuild("")
 }
