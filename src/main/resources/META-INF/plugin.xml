@@ -5,7 +5,8 @@
 
   <description>
     <![CDATA[Doubles the visual length of space indents<br/>
-    Switch it on/off using <kbd>View -> Toggle Elastic Indents</kbd>]]>
+    Switch it on/off using <kbd>View -> Toggle Elastic Indents</kbd>
+    <div><img src="https://raw.githubusercontent.com/heldev/intellij-elastic-indents/master/demo.gif"></div>]]>
   </description>
 
   <change-notes>Initial version, visually doubles the length of space indents</change-notes>
