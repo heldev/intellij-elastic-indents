@@ -1,5 +1,6 @@
-package io.github.heldev;
+package io.github.heldev.stretching.editor.inlays;
 
+import com.intellij.openapi.components.Service;
 import com.intellij.openapi.editor.Document;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.editor.EditorFactory;
@@ -12,17 +13,16 @@ import java.util.stream.IntStream;
 
 import static java.lang.Integer.MAX_VALUE;
 
-public class InlayManipulator {
-	private final EditorFactory editorFactory;
+@Service
+public final class InlayManipulator {
 	private final Project project;
 
-	public InlayManipulator(EditorFactory editorFactory, Project project) {
-		this.editorFactory = editorFactory;
+	public InlayManipulator(Project project) {
 		this.project = project;
 	}
 
 	public void refreshIndentInlays(Document document) {
-		for(Editor editor: editorFactory.getEditors(document, project)) {
+		for(Editor editor: EditorFactory.getInstance().getEditors(document, project)) {
 			removeIndentInlays(editor);
 			addIndentInlays(editor);
 		}
@@ -43,7 +43,7 @@ public class InlayManipulator {
 		Integer indentSpaceCount = countIndentSpaces(document, lineStart);
 
 		if (0 < indentSpaceCount) {
-			inlayModel.addInlineElement(lineStart, new IndentRenderer(indentSpaceCount));
+			inlayModel.addInlineElement(lineStart, new IndentInlayRenderer(indentSpaceCount));
 		}
 	}
 
@@ -60,7 +60,7 @@ public class InlayManipulator {
 		getExistingIndentInlays(editor.getInlayModel()).forEach(Inlay::dispose);
 	}
 
-	private List<Inlay<? extends IndentRenderer>> getExistingIndentInlays(InlayModel inlayModel) {
-		return inlayModel.getInlineElementsInRange(0, MAX_VALUE, IndentRenderer.class);
+	private List<Inlay<? extends IndentInlayRenderer>> getExistingIndentInlays(InlayModel inlayModel) {
+		return inlayModel.getInlineElementsInRange(0, MAX_VALUE, IndentInlayRenderer.class);
 	}
 }

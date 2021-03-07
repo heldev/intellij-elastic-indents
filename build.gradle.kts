@@ -1,12 +1,12 @@
 import org.jetbrains.intellij.tasks.PatchPluginXmlTask
 
 plugins {
-    id("org.jetbrains.intellij") version "0.4.21"
+    id("org.jetbrains.intellij") version "0.7.2"
     java
 }
 
 group = "io.github.heldev"
-version = "1.0.0"
+version = "2.0.0"
 
 repositories {
     mavenCentral()

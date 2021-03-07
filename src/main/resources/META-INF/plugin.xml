@@ -1,27 +1,40 @@
 <idea-plugin>
-  <id>io.github.heldev.elasticindents</id>
-  <name>Elastic Indents</name>
-  <vendor email="heldevemail@gmail.com" url="https://github.com/heldev/intellij-elastic-indents">heldev</vendor>
+	<id>io.github.heldev.elasticindents</id>
+	<name>Elastic Indents</name>
+	<vendor email="heldevemail@gmail.com" url="https://github.com/heldev/intellij-elastic-indents">heldev</vendor>
 
-  <description>
-    <![CDATA[Doubles the visual length of space indents<br/>
-    Switch it on/off using <kbd>View -> Toggle Elastic Indents</kbd>
-    <div><img src="https://raw.githubusercontent.com/heldev/intellij-elastic-indents/master/demo.gif"></div>]]>
-  </description>
+	<description>
+		<![CDATA[Adjust the visual length of space indents (tabs emulation)<br/>
+		Switch it on/off using the <kbd>Elastic Indents</kbd> menu
+		<div><img src="https://raw.githubusercontent.com/heldev/intellij-elastic-indents/master/demo.gif"></div>]]>
+	</description>
 
-  <change-notes>Initial version, visually doubles the length of space indents</change-notes>
+	<change-notes>
+		<![CDATA[<ul>
+			<li>Ability to halve the visual length of indents</li>
+			<li>More precise width adjustments</li>
+		</ul]]>
+	</change-notes>
 
-  <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
-       on how to target different products -->
-  <depends>com.intellij.modules.platform</depends>
+	<!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+		on how to target different products -->
+	<depends>com.intellij.modules.platform</depends>
 
-  <actions>
-      <action id="io.github.heldev.ToggleElasticIndentsAction"
-              class="io.github.heldev.ToggleElasticIndentsAction"
-              text="Toggle Elastic Indents"
-              description="Turn elastic indentation on or off">
-          <add-to-group group-id="ViewMenu" anchor="last"/>
-      </action>
-  </actions>
+	<actions>
+		<group id="ElasticIndentsGroup" text="Elastic Indents" popup="true">
+
+			<action id="io.github.heldev.ToggleStretchingAction"
+					class="io.github.heldev.ToggleStretchingAction"
+					text="Double Indents Display Width"
+					description="All space indents will appear twice as long"/>
+
+			<action id="io.github.heldev.ToggleShrinkingAction"
+					class="io.github.heldev.ToggleShrinkingAction"
+					text="Halve Indents Display Width"
+					description="All space indents will appear twice as short"/>
+
+			<add-to-group group-id="ViewMenu" anchor="last"/>
+		</group>
+	</actions>
 
 </idea-plugin>
